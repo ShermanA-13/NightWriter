@@ -4,10 +4,6 @@ require 'pry'
 RSpec.describe do
   context 'Iteration 1' do
     describe NightWriter do
-      before(:each) do
-
-      end
-
       it 'exists' do
 
       end
