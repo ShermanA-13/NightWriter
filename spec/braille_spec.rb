@@ -19,18 +19,22 @@ RSpec.describe do
         expect(@br_alpha.braille_letters[:" "]).to eq(['..', '..', '..'])
       end
     end
+  end
 
+  context 'Iteration 2' do
     describe BrailleTranslator do
-      context 'Iteration 2' do
-        describe BrailleTranslator do
-          before(:each) do
-            @br_translator = BrailleTranslator.new
-          end
+      before(:each) do
+        @br_translator = BrailleTranslator.new
+      end
 
-          it 'exists' do
-            expect(@br_translator).to be_a(BrailleTranslator)
-          end
-        end
+      it 'exists' do
+        expect(@br_translator).to be_a(BrailleTranslator)
+      end
+
+      it 'has attributes' do
+        expect(@br_translator.braille_letters).to be_a(Hash)
+        expect(@br_translator.braille_letters[:a]).to eq(['0.', '..', '..'])
+        expect(@br_translator.braille_letters[:" "]).to eq(['..', '..', '..'])
       end
     end
   end
