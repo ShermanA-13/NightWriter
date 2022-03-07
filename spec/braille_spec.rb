@@ -52,9 +52,16 @@ RSpec.describe do
 
         expected1 = ['000..0', '.0.00.', '00..0.']
         expected2 = ['0.0.0.0.0.', '00.00.0..0', '....0.0.0.']
-        # binding.pry
+
         expect(@br_translator.render('yes')).to eq(expected1)
         expect(@br_translator.render('hello')).to eq(expected2)
+      end
+
+      it '#cut breaks up a message anything over 40 characters' do
+        message = 'the quick brown fox jumps over the lazy dog'
+        expected = ['the quick brown fox jumps over the lazy ', 'dog']
+
+        expect(@br_translator.cut(message)).to eq(expected)
       end
     end
   end
