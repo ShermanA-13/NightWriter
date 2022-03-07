@@ -15,8 +15,8 @@ RSpec.describe do
 
       it 'has attributes' do
         expect(@br_alpha.braille_letters).to be_a(Hash)
-        expect(@br_alpha.braille_letters[:a]).to eq(['0.', '..', '..'])
-        expect(@br_alpha.braille_letters[:" "]).to eq(['..', '..', '..'])
+        expect(@br_alpha.braille_letters['a']).to eq(['0.', '..', '..'])
+        expect(@br_alpha.braille_letters[' ']).to eq(['..', '..', '..'])
       end
     end
   end
@@ -33,8 +33,28 @@ RSpec.describe do
 
       it 'has attributes' do
         expect(@br_translator.braille_letters).to be_a(Hash)
-        expect(@br_translator.braille_letters[:a]).to eq(['0.', '..', '..'])
-        expect(@br_translator.braille_letters[:" "]).to eq(['..', '..', '..'])
+        expect(@br_translator.braille_letters.length).to eq(27)
+        expect(@br_translator.braille_letters['a']).to eq(['0.', '..', '..'])
+        expect(@br_translator.braille_letters[' ']).to eq(['..', '..', '..'])
+      end
+
+      it '#render transforms english message braille message' do
+        # @br_translator = double('BrailleTranslator')
+        # @super = BrailleAlphabet.new
+        # allow(@br_translator).to receive(:english_message).and_return('yes')
+        # expect(@br_translator).to receive(:super).and_return(@super)
+        # binding.pry
+        # expect_any_instance_of(BrailleTranslator).to receive(:english_message).and_return('yes')
+        # expect_any_instance_of(@br_translator).to receive(:english_message).and_return('yes')
+        # expect_any_instance_of(@br_translator).to receive(BrailleAlphabet.new)
+        # @br_translator = instance_double('BrailleTranslator', english_message: 'yes')
+        # binding.pry
+
+        expected1 = ['000..0', '.0.00.', '00..0.']
+        expected2 = ['0.0.0.0.0.', '00.00.0..0', '....0.0.0.']
+        # binding.pry
+        expect(@br_translator.render('yes')).to eq(expected1)
+        expect(@br_translator.render('hello')).to eq(expected2)
       end
     end
   end
