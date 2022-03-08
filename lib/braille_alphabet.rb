@@ -32,4 +32,8 @@ class BrailleAlphabet
       ' ' => ['..', '..', '..']
     }
   end
+
+  def english_characters
+    @braille_letters.invert
+  end
 end
