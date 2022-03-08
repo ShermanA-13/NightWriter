@@ -4,7 +4,7 @@ require 'pry'
 class EnglishTranslator < Dictionary
   attr_reader :english_characters
 
-  initialize
+  def initialize
     super
     english_characters
   end

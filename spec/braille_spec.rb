@@ -1,5 +1,6 @@
 require_relative '../lib/dictionary'
 require_relative '../lib/braille_translator'
+require_relative '../lib/english_translator'
 require 'pry'
 
 RSpec.describe do
@@ -75,16 +76,15 @@ RSpec.describe do
       end
     end
   end
+
   context 'Iteration 3' do
-    describe BrailleTranslator do
+    describe EnglishTranslator do
       before(:each) do
-        # @eng_translator = EnglishTranslator.new
+        @eng_translator = EnglishTranslator.new
       end
 
       it 'exists' do
-        @eng_translator = class_double('EnglishTranslator').
-                          # binding.pry
-                          expect(@eng_translator).to be_a(EnglishTranslator)
+        expect(@eng_translator).to be_a(EnglishTranslator)
       end
     end
   end
