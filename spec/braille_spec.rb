@@ -86,6 +86,11 @@ RSpec.describe do
       it 'exists' do
         expect(@eng_translator).to be_a(EnglishTranslator)
       end
+
+      it 'knows to invert braille dictionary to english characters' do
+        binding.pry
+        expect(@eng_translator.english_characters).to eq(@eng_translator.braille_letters.invert)
+      end
     end
   end
 end
