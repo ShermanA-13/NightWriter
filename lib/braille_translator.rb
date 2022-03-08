@@ -1,7 +1,7 @@
-require_relative 'braille_alphabet'
+require_relative 'dictionary'
 require 'pry'
 
-class BrailleTranslator < BrailleAlphabet
+class BrailleTranslator < Dictionary
   attr_reader :braille_letters
 
   def initialize

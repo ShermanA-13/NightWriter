@@ -1,4 +1,4 @@
-class BrailleAlphabet
+class Dictionary
   attr_reader :braille_letters
 
   def initialize
