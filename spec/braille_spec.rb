@@ -75,4 +75,17 @@ RSpec.describe do
       end
     end
   end
+  context 'Iteration 3' do
+    describe BrailleTranslator do
+      before(:each) do
+        # @eng_translator = EnglishTranslator.new
+      end
+
+      it 'exists' do
+        @eng_translator = class_double('EnglishTranslator').
+                          # binding.pry
+                          expect(@eng_translator).to be_a(EnglishTranslator)
+      end
+    end
+  end
 end
