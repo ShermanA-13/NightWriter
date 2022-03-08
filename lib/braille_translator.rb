@@ -25,12 +25,20 @@ class BrailleTranslator < BrailleAlphabet
 
   def cut(message)
     if message[0].length > 80
-      formated_msg = message.map do |message|
-        message.chars.each_slice(80).map(&:join)
-      end
-      formated_msg.join("\n")
+      message.map { |message| message.chars.each_slice(80).map(&:join) }
     else
-      message.join("\n")
+      message
     end
+  end
+
+  def reformat(cut_message)
+    count = cut_message[0].length
+    i = 0
+    formated_msg = ''
+    until i > (count - 1)
+      cut_message.map { |line| formated_msg += line[i] + "\n" }
+      i += 1
+    end
+    formated_msg
   end
 end
