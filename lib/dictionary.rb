@@ -1,4 +1,4 @@
-class BrailleAlphabet
+class Dictionary
   attr_reader :braille_letters
 
   def initialize
@@ -31,9 +31,5 @@ class BrailleAlphabet
       'z' => ['0.', '.0', '00'],
       ' ' => ['..', '..', '..']
     }
-  end
-
-  def english_characters
-    @braille_letters.invert
   end
 end
