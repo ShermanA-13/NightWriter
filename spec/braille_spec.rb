@@ -96,6 +96,16 @@ RSpec.describe do
 
         expect(@eng_translator.translate(x)).to eq('x')
       end
+
+      it '#translate can translate words' do
+        hello = @eng_translator.translate([['0.', '00', '..'],
+                                           ['0.', '.0', '..'],
+                                           ['0.', '0.', '0.'],
+                                           ['0.', '0.', '0.'],
+                                           ['0.', '.0', '0.']])
+
+        expect(hello).to eq 'hello'
+      end
     end
   end
 end

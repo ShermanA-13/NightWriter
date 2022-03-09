@@ -6,7 +6,6 @@ class BrailleTranslator < Dictionary
 
   def initialize
     super
-    binding.pry
   end
 
   def translate(input)
