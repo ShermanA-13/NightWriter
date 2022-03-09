@@ -88,8 +88,13 @@ RSpec.describe do
       end
 
       it 'knows to invert braille dictionary to english characters' do
-        binding.pry
         expect(@eng_translator.english_characters).to eq(@eng_translator.braille_letters.invert)
+      end
+
+      it 'able to translate braille to eng_char' do
+        x = ['00', '..', '00']
+
+        expect(@eng_translator.translate(x)).to eq('x')
       end
     end
   end
