@@ -92,17 +92,13 @@ RSpec.describe do
       end
 
       it 'able to translate braille to eng_char' do
-        x = ['00', '..', '00']
+        x = "00\n..\n00"
 
         expect(@eng_translator.translate(x)).to eq('x')
       end
 
       it '#translate can translate words' do
-        hello = @eng_translator.translate([['0.', '00', '..'],
-                                           ['0.', '.0', '..'],
-                                           ['0.', '0.', '0.'],
-                                           ['0.', '0.', '0.'],
-                                           ['0.', '.0', '0.']])
+        hello = @eng_translator.translate("0.0.0.0.0.\n00.00.0..0\n....0.0.0.")
 
         expect(hello).to eq 'hello'
       end
