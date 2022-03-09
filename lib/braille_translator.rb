@@ -6,6 +6,7 @@ class BrailleTranslator < BrailleAlphabet
 
   def initialize
     super
+    binding.pry
   end
 
   def translate(input)
@@ -32,13 +33,17 @@ class BrailleTranslator < BrailleAlphabet
   end
 
   def reformat(cut_message)
-    count = cut_message[0].length
-    i = 0
-    formated_msg = ''
-    until i > (count - 1)
-      cut_message.map { |line| formated_msg += line[i] + "\n" }
-      i += 1
+    if cut_message.flatten.count > 3
+      count = cut_message[0].length
+      i = 0
+      formated_msg = ''
+      until i > (count - 1)
+        cut_message.map { |line| formated_msg += line[i] + "\n" }
+        i += 1
+      end
+      formated_msg
+    else
+      cut_message.join("\n")
     end
-    formated_msg
   end
 end
